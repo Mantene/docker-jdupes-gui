@@ -4,10 +4,8 @@ LABEL maintainer="admin@minenet.at"
 
 RUN export TZ=America/New_York && \
 	apt-get update && \
-	apt-get -y install --no-install-recommends software-properties-common bzip2 libgtk-3-0 libdbus-glib-1-2 && \
-	add-apt-repository -y ppa:deadsnakes/ppa && \
-	apt-get update && \
-	apt-get -y install python3.9 python3-pip git &&\
+	apt-get -y install --no-install-recommends software-properties-common bzip2 libgtk-3-0 libdbus-glib-1-2  dbus-x11 sudo at-spi2-core&& \
+	apt-get -y install python3 python3-pip git libcairo2-dev libgirepository1.0-dev python3-gi gobject-introspection gir1.2-gtk-3.0 librsvg2-common &&\
 	pip3 install pygobject && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
